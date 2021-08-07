@@ -18,7 +18,7 @@ func Login(ctx *fiber.Ctx) error {
 }
 
 func Logout1(ctx *fiber.Ctx) error {
-	return eris.NewFromMsg(logout2(ctx), "logout1 error").StatusCode(401).EnableJSON()
+	return eris.NewFromMsg(logout2(ctx), "logout1 error").StatusCode(401).EnableJSON() //Bọc lỗi trả về từ logout2
 }
 
 func logout2(ctx *fiber.Ctx) error {
@@ -31,7 +31,7 @@ func logout3(ctx *fiber.Ctx) error {
 
 func Query(ctx *fiber.Ctx) error {
 	if err := connectDB(); err != nil {
-		if eris.IsPanic(err) { //Hãy dùng hàm có sẵn trong eris
+		if eris.IsPanic(err) { //Hãy dùng hàm có sẵn trong eris.IsPanic
 			panic(err.Error())
 		} else {
 			return err

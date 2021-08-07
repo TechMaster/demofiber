@@ -23,8 +23,7 @@ func DemoUnAuthorized(c *fiber.Ctx) error {
 	return eris.New("Không thể xác định danh tính")
 }
 func DemoRESTAPIError(c *fiber.Ctx) error {
-	_ = c.Status(fiber.StatusUnauthorized).JSON("Bad Request")
-	return eris.New("Bad request").StatusCode(fiber.StatusUnauthorized)
+	return c.Status(fiber.StatusUnauthorized).JSON("Bad Request") //trả lỗi qua HTTP status code
 }
 
 func LoginAPI(c *fiber.Ctx) error {
