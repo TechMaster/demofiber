@@ -1,39 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Demo xử lý lỗi trong Golang</title>
-</head>
-<body>
-  <h1>Error Log and Report</h1>
-  <ul>
-    <li><a href="/err/error">Generic Error: lỗi chung chung</a></li>
-    <li><a href="/err/login">Lỗi UnAuthorize</a></li>
-    <li><a href="/err/apierror">Lỗi khi gọi REST API</a></li>
-    <li><a href="/err/loginapi">Lỗi khi REST API chứa thông tin bổ xung</a></li>
-    <li><a href="/err/wrap">eris.NewFromMsg</a></li>
-    <li><a href="/err/dividezero">Generic error không dùng erir.Error</a></li>
-    <li><a href="/err/posts">Lỗi khi gọi nhiều tầng package</a></li>
-    <li><a href="/err/notfound">Truy cập một đường dẫn không tồn tại</a></li>
-    <li><a href="/err/panic">Xử lý lỗi panic error</a></li>
-    <li><a href="/err/warn">Warning + trả về Status Code</a></li>
-    <li><a href="/err/cause">eris.Cause(error)</a></li>
-  </ul>
-  <h1>Param & Query</h1>
-  <ul>
-    <li><a href="/para/author/cuong/book/12">User: Cuong, Book: 12</a></li>
-    <li><a href="/para/user/John">User: John</a></li>
-    <li><a href="/para/foo/John">Foo: John</a></li>
-    <li><a href="/para/bar/Mary">Bar: Mary</a></li>
-    <li><a href="/para/name\\:customVerb">:customVerb</a></li>
-  </ul>
-  <h1>Session</h1>
-  <ul>
-    <li><a href="/session/getsessionid">Get Session ID</a></li>
-    <li><a href="/session/counter">Session Counter</a></li>
-    <li><a href="/session/authen">Session Authen</a></li>
-  </ul>
-</body>
-</html>
+{{template "layout/header" .}}
+
+<h1>Error Log and Report</h1>
+<ul>
+  <li><a href="/err/error">Generic Error: lỗi chung chung</a></li>
+  <li><a href="/err/login">Lỗi UnAuthorize</a></li>
+  <li><a href="/err/apierror">Lỗi khi gọi REST API</a></li>
+  <li><a href="/err/loginapi">Lỗi khi REST API chứa thông tin bổ xung</a></li>
+  <li><a href="/err/wrap">eris.NewFromMsg</a></li>
+  <li><a href="/err/dividezero">Generic error không dùng erir.Error</a></li>
+  <li><a href="/err/posts">Lỗi khi gọi nhiều tầng package</a></li>
+  <li><a href="/err/notfound">Truy cập một đường dẫn không tồn tại</a></li>
+  <li><a href="/err/panic">Xử lý lỗi panic error</a></li>
+  <li><a href="/err/warn">Warning + trả về Status Code</a></li>
+  <li><a href="/err/cause">eris.Cause(error)</a></li>
+</ul>
+<h1>Param & Query</h1>
+<ul>
+  <li><a href="/para/author/cuong/book/12">User: Cuong, Book: 12</a></li>
+  <li><a href="/para/user/John">User: John</a></li>
+  <li><a href="/para/foo/John">Foo: John</a></li>
+  <li><a href="/para/bar/Mary">Bar: Mary</a></li>
+  <li><a href="/para/name\\:customVerb">:customVerb</a></li>
+</ul>
+<h1>Session</h1>
+<ul>
+  <li><a href="/session/getsessionid">Get Session ID</a></li>
+  <li><a href="/session/counter">Session Counter</a></li>
+  <li><a href="/session/setauthen">Set Session Authen</a></li>
+  <li><a href="/session/getauthen">Get Session Authen</a></li>
+</ul>
+
+<h1>Context</h1>
+<ul>
+  <li><a href="/ctx/passdata">Pass data between handler</a></li>   
+</ul>
+
+<h1>Template</h1>
+<ul>
+  <li><a href="/tmpl/default">Dùng template mặc định</a></li>
+  <li><a href="/tmpl/custom">Dùng template customize</a></li>
+  <li><a href="/tmpl/notemplate">Không dùng template nào cả</a></li>
+</ul>

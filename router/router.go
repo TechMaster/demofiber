@@ -12,6 +12,8 @@ func RegisterRoutes(app *fiber.App) {
 	routeDemoErrorHandling(app)
 	routeSession(app)
 	demoParamQuery(app)
+	demoContext(app)
+	demoApi(app)
 }
 func routeDemoErrorHandling(app *fiber.App) {
 	app.Get("/err/error", controller.GenericError) // Trả về lỗi trên màn hình
@@ -35,6 +37,10 @@ func routeDemoErrorHandling(app *fiber.App) {
 	app.Get("/err/warn", controller.DemoWarning) //Xử lý Warning
 
 	app.Get("/err/cause", controller.DemoCause)
+
+	app.Get("/tmpl/default", controller.UseDefaultTemplate)
+	app.Get("/tmpl/custom", controller.UseCustomTemplate)
+	app.Get("/tmpl/notemplate", controller.UseNoTemplate)
 }
 
 func demoParamQuery(app *fiber.App) {
@@ -73,5 +79,14 @@ func demoParamQuery(app *fiber.App) {
 func routeSession(app *fiber.App) {
 	app.Get("/session/getsessionid", controller.GetSessionID)
 	app.Get("/session/counter", controller.SessionCounter)
-	app.Get("/session/authen", controller.SessionAuthenticate)
+	app.Get("/session/setauthen", controller.SetSessionAuthenticate)
+	app.Get("/session/getauthen", controller.GetSessionAuthenticate)
+}
+
+func demoContext(app *fiber.App) {
+	app.Get("/ctx/passdata", controller.Handler1, controller.Handler2, controller.Handler3)
+}
+
+func demoApi(app *fiber.App) {
+	app.Post("/api/job", controller.PostJob)
 }

@@ -1,20 +1,23 @@
 package main
 
 import (
+	"demofiber/cookie_session"
 	"demofiber/router"
+	"demofiber/template"
 	"fmt"
 
 	"github.com/gofiber/fiber/v2"
-	"github.com/gofiber/template/html"
 ) //import thư viện fiber version 2
 
 func main() {
 	app := fiber.New(
 		fiber.Config{
-			Views:        html.New("./views", ".html"),
+			Views:        template.Init(),
 			ErrorHandler: CustomErrorHandler, //Đăng ký hàm xử lý lỗi ở đây
 		},
 	)
+	redisDB := cookie_session.InitSession()
+	defer redisDB.Close()
 
 	router.RegisterRoutes(app)
 	//Để hàm này dưới cùng để bắt lỗi 404 Not Found

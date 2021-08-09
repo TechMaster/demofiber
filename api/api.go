@@ -18,7 +18,8 @@ func Login(ctx *fiber.Ctx) error {
 }
 
 func Logout1(ctx *fiber.Ctx) error {
-	return eris.NewFromMsg(logout2(ctx), "logout1 error").StatusCode(401).EnableJSON() //Bọc lỗi trả về từ logout2
+	return eris.NewFromMsg(logout2(ctx), "logout1 error").
+		StatusCode(401).EnableJSON().SetType(eris.SYSERROR) //Bọc lỗi trả về từ logout2
 }
 
 func logout2(ctx *fiber.Ctx) error {

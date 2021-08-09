@@ -1,23 +1,16 @@
 package cookie_session
 
 import (
+	"demofiber/model"
 	"encoding/gob"
 	"time"
 
 	"github.com/gofiber/fiber/v2/middleware/session"
+	"github.com/gofiber/storage/redis"
 )
 
 var Sess *session.Store
 
-func init() {
-	Sess = session.New(session.Config{
-		KeyLookup:  "cookie:session_id",
-		Expiration: 24 * time.Hour,
-	})
-	gob.Register(Authenticate{})
-}
-
-/*
 func InitSession() *redis.Storage {
 	redisDB := redis.New(redis.Config{
 		Host:     "localhost",
@@ -28,6 +21,13 @@ func InitSession() *redis.Storage {
 		Reset:    false,
 	})
 
-	Sess.Storage = redisDB
+	Sess = session.New(session.Config{
+		//KeyLookup: "cookie:TechMaster",
+
+		CookieName: "TechMaster",
+		Expiration: 24 * time.Hour,
+		Storage:    redisDB,
+	})
+	gob.Register(model.Authenticate{})
 	return redisDB
-}*/
+}

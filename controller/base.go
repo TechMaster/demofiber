@@ -12,7 +12,7 @@ import (
 )
 
 func Homepage(c *fiber.Ctx) error {
-	return c.Render("index", nil)
+	return c.Render("index", nil, "layout/layout")
 }
 
 func GenericError(c *fiber.Ctx) error {
